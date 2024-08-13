@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
     public float spawnRate = 1f;
     public float minHeight = -1f;
     public float maxHeight = 2f;
-    public float verticalGap = 3f;
+    public float verticalGap = 3.5f;
 
     private void OnEnable()
     {

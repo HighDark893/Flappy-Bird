@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject gameOver;
+    [SerializeField] private GameObject getReady;
 
     public int score { get; private set; } = 0;
 
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Pause();
+        getReady.SetActive(true);
+        gameOver.SetActive(false);
     }
 
     public void Pause()
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
 
         playButton.SetActive(false);
+        getReady.SetActive(false);
         gameOver.SetActive(false);
 
         Time.timeScale = 1f;
