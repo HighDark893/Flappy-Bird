@@ -2,6 +2,8 @@
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] AudioClip wingSFX;
+
     public Sprite[] sprites;
     public float strength = 5f;
     public float gravity = -9.81f;
@@ -10,7 +12,6 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 direction;
     private int spriteIndex;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
             direction = Vector3.up * strength;
+            GetComponent<AudioSource>().PlayOneShot(wingSFX);
         }
 
         // Apply gravity and update the position
